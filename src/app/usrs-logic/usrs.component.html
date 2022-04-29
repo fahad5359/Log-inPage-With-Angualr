@@ -13,26 +13,27 @@
             <!-- pass -->
             <label>Pass Word</label>
             <input type="password" class="form-control" [(ngModel)]="passWrd" placeholder="EnterPass" >
-
+<br>
+<br>
             <!-- email/Phone number -->
-            <label>{{EmailOrPhone}}</label>
-            <input [type]="emailType" class="form-control"   [(ngModel)]="eml" placeholder="enter Email">
-            <input [type]="phoneType" class="form-control"   [(ngModel)]="nmbr"placeholder="Enter Password">
+            <!-- <label>{{EmailOrPhone}}</label> -->
+            <input [type]="emailType" class="form-control"   [(ngModel)]="eml"  *ngIf="bool_eml" placeholder="enter Email">
+            <input [type]="phoneType" class="form-control"   [(ngModel)]="nmbr" *ngIf="bool_phne" placeholder="Enter PhoneNumber">
 
-            <button (click)="toPhone_numb()">ByPhoneNumber</button>
-            <button (click)="revertEmlPhon()">ByEmail</button>
+            <button (click)="toPhone_numb()"> ByEmail</button>
+            <button (click)="revertEmlPhon()"  >ByPhoneNumber</button>
             <br>
             <br>
 
             <!-- button -->
             <div class="d-flex justify-content-center">
                 <button type="button" class="btn btn-primary" [disabled]="userNem ==='' "
-                    (click)="getUsrNem()">LzGo</button>
+                    (click)="getUsrNem()" >LzGo</button>
             </div>
 
             <!-- Alian -->
             <div class="d-flex justify-content-center">
-                <button type="button" class="btn btn-primary">I am an Alian</button>
+                <button type="button"  class="btn btn-primary">I am an Alian</button>
             </div>
         </div>
         <br>
@@ -41,12 +42,15 @@
 
         <h1 *ngIf="sumbitt">Welcome {{userNem}}</h1>
         <h1 *ngIf="sumbitt">Ur pass is {{passWrd}}</h1>
-        <ng-template [ngIf]="sumbitt" [ngIfElse]="" >
-            <h1>Ur Email is {{eml}}</h1>
-        </ng-template>
+        <h1 *ngIf="sumbitt">The Email you Entered Is {{eml}}</h1>
+        <h1 *ngIf="!sumbitt">The Number You Entered Is {{nmbr}} </h1>
+      
         <!-- <h1>ur phone number is {{das}}</h1> -->
 
-        <p *ngIf="sumbitt">Nice the User nem u entered is {{userNem}}</p>
     </div>
 
+
+    <div class="yosers">
+       <p *ngFor="let uuusers of usrsArray"> the Users you Adedd are {{usrsArray}}</p>
+    </div>
 </div>
