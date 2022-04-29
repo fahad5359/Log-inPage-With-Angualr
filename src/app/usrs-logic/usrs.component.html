@@ -1,0 +1,47 @@
+<div class="container">
+    <!-- <p>hla i aadasdwesm working fine </p>     -->
+    <!-- A logIn Page with usrnem and pass,and a small trick -->
+    <div class="card border-primary">
+        <div class="card-body">
+
+            <h4 class="card-title"><label>Login</label></h4>
+            <!--Human  -->
+            <!-- usr -->
+            <label>User Name</label>
+            <input type="text" class="form-control" [(ngModel)]="userNem" placeholder="EnterUserNem">
+
+            <!-- pass -->
+            <label for="">Pass Word</label>
+            <input type="password" class="form-control" [(ngModel)]="passWrd" placeholder="EnterPass">
+
+            <!-- email/Phone number -->
+            <label>{{EmailOrPhone}}</label>
+            <input [type]="emlOrPhone" class="form-control" [placeholder]="placeHolder">
+            <button (click)="toPhone_numb()">ByPhoneNumber</button>
+            <button (click)="revertEmlPhon()">ByEmail</button>
+            <br>
+            <br>
+
+            <!-- button -->
+            <div class="d-flex justify-content-center">
+                <button type="button" class="btn btn-primary" [disabled]="userNem ==='' "
+                    (click)="getUsrNem()">LzGo</button>
+            </div>
+
+            <!-- Alian -->
+            <div class="d-flex justify-content-center">
+                <button type="button" class="btn btn-primary">I am an Alian</button>
+            </div>
+        </div>
+        <br>
+        <br>
+        <!--  info -->
+
+        <h1 *ngIf="sumbitt">Welcome {{userNem}}</h1>
+        <h1 *ngIf="sumbitt">Ur pass is{{passWrd}}</h1>
+        <h1 *ngIf="sumbitt">Ur Email is{{passWrd}}</h1>
+
+        <p *ngIf="sumbitt">Nice the User nem u entered is {{userNem}}</p>
+    </div>
+
+</div>
