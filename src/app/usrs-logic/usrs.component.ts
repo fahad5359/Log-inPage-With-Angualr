@@ -9,13 +9,19 @@ export class UsrsLogic{
     // LogIN
     userNem=""
     passWrd=""
+    eml=""
+    nmbr=""
+  
 
 // String Interpolation
 EmailOrPhone="ByEmail"
 
 // PropertyBinding
     btnStts=true
-    emlOrPhone="Email"
+    emailType="Email"
+    phoneType="number"
+ 
+    phone="number"
     placeHolder="Enter Email"
 
 // Boolean/not Binded
@@ -28,14 +34,11 @@ EmailOrPhone="ByEmail"
 
     }
     toPhone_numb(){
-        this.EmailOrPhone="ByPhone"
-        this.emlOrPhone="number"
-        this.placeHolder="EnterPhoneNumber"
+       
 
     }
     revertEmlPhon(){
-        this.emlOrPhone="Email"
-        this.placeHolder="Enter Email"
+     
 
     }
 

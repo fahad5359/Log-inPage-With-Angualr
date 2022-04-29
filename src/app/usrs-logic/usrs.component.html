@@ -11,12 +11,14 @@
             <input type="text" class="form-control" [(ngModel)]="userNem" placeholder="EnterUserNem">
 
             <!-- pass -->
-            <label for="">Pass Word</label>
-            <input type="password" class="form-control" [(ngModel)]="passWrd" placeholder="EnterPass">
+            <label>Pass Word</label>
+            <input type="password" class="form-control" [(ngModel)]="passWrd" placeholder="EnterPass" >
 
             <!-- email/Phone number -->
             <label>{{EmailOrPhone}}</label>
-            <input [type]="emlOrPhone" class="form-control" [placeholder]="placeHolder">
+            <input [type]="emailType" class="form-control"   [(ngModel)]="eml" placeholder="enter Email">
+            <input [type]="phoneType" class="form-control"   [(ngModel)]="nmbr"placeholder="Enter Password">
+
             <button (click)="toPhone_numb()">ByPhoneNumber</button>
             <button (click)="revertEmlPhon()">ByEmail</button>
             <br>
@@ -38,8 +40,11 @@
         <!--  info -->
 
         <h1 *ngIf="sumbitt">Welcome {{userNem}}</h1>
-        <h1 *ngIf="sumbitt">Ur pass is{{passWrd}}</h1>
-        <h1 *ngIf="sumbitt">Ur Email is{{passWrd}}</h1>
+        <h1 *ngIf="sumbitt">Ur pass is {{passWrd}}</h1>
+        <ng-template [ngIf]="sumbitt" [ngIfElse]="" >
+            <h1>Ur Email is {{eml}}</h1>
+        </ng-template>
+        <!-- <h1>ur phone number is {{das}}</h1> -->
 
         <p *ngIf="sumbitt">Nice the User nem u entered is {{userNem}}</p>
     </div>
